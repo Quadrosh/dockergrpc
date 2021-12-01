@@ -70,9 +70,10 @@ func (s *Server) BroadcastMessage(ctx context.Context, msg *proto.Message) (*pro
 		close(done) // than execute close command to done channel
 	}()
 
-	<-done // block the return from function untill done retuns an item
+	<-done // block the return from function until done retuns an item
 	return &proto.Close{}, nil
 }
+
 func main() {
 	var connections []*Connection
 
